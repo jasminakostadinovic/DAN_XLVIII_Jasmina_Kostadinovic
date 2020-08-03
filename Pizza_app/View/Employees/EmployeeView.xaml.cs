@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pizza_app.ViewModel.Employees;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Pizza_app.View.Employees
 {
@@ -19,9 +9,19 @@ namespace Pizza_app.View.Employees
     /// </summary>
     public partial class EmployeeView : Window
     {
-        public EmployeeView()
+        public EmployeeView(string ordererPersonalNo)
         {
             InitializeComponent();
+            this.DataContext = new EmployeeViewModel(this, ordererPersonalNo);
+        }
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            //hiding id columns
+            if (e.Column.Header.ToString() == "OrderID"
+                 || e.Column.Header.ToString() == "tblMealOrders")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

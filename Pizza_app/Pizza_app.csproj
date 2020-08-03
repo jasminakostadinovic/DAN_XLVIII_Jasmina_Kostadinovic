@@ -89,13 +89,21 @@
     <Compile Include="Model\tblOrder.cs">
       <DependentUpon>PizzaRestaurantModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Employees\DeleteEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\Employees\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\Guests\NewGuestViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Orders\OrderStatusViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\WarningViewModel.cs" />
     <Compile Include="View\Employees\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Guests\NewGuestView.xaml.cs">
       <DependentUpon>NewGuestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Orders\DeleteOrderView.xaml.cs">
+      <DependentUpon>DeleteOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Orders\OrderStatusView.xaml.cs">
       <DependentUpon>OrderStatusView.xaml</DependentUpon>
@@ -121,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Guests\NewGuestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Orders\DeleteOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

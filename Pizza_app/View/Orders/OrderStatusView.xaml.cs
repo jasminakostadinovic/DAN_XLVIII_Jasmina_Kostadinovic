@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pizza_app.ViewModel.Orders;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Pizza_app.View.Orders
 {
@@ -19,9 +9,20 @@ namespace Pizza_app.View.Orders
     /// </summary>
     public partial class OrderStatusView : Window
     {
-        public OrderStatusView()
+        public OrderStatusView(string ordererPersonalNo)
         {
             InitializeComponent();
+            this.DataContext = new OrderStatusViewModel(this, ordererPersonalNo);
+        }
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            //hiding id columns
+            if (e.Column.Header.ToString() == "OrdererPersonalNo"
+                || e.Column.Header.ToString() == "OrderID"
+                 || e.Column.Header.ToString() == "tblMealOrders")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

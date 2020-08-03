@@ -33,7 +33,6 @@ namespace Pizza_app.ViewModel
 		#region Properties
 		public string UserName
 		{
-
 			get
 			{
 				return userName;
