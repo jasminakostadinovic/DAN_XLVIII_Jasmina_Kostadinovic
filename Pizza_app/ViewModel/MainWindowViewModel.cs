@@ -5,10 +5,6 @@ using Pizza_app.View.Employees;
 using Pizza_app.View.Guests;
 using Pizza_app.View.Orders;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -16,7 +12,7 @@ using Validations;
 
 namespace Pizza_app.ViewModel
 {
-    class MainWindowViewModel : ViewModelBase
+	class MainWindowViewModel : ViewModelBase
 	{
 		#region Fields
 		private string userName;
@@ -63,7 +59,8 @@ namespace Pizza_app.ViewModel
 		{
 			string password = (obj as PasswordBox).Password;
 			var validate = new Validations.Validations();
-			if (UserName == "Zaposleni" && password == "Zaposleni")
+			var constants = new Constants();
+			if (UserName == "Zaposleni" && SecurePasswordHasher.Verify(password, constants.passwordEmployeeHashed))
 			{
 				EmployeeView employeeView = new EmployeeView(UserName);
 				loginView.Close();
@@ -71,7 +68,7 @@ namespace Pizza_app.ViewModel
 				return;
 			}
 
-			else if (validate.IsValidPersonalNoFormat(UserName) && password == "Gost")
+			else if (validate.IsValidPersonalNoFormat(UserName) && SecurePasswordHasher.Verify(password, constants.passwordGuestHashed))
 			{
 
 				DataAccess dataAccess = new DataAccess();
