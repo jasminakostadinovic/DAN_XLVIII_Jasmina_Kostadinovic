@@ -115,6 +115,7 @@ namespace Pizza_app.ViewModel.Employees
                                 db.DeleteOrderedMeal(item);
                             }
                             db.DeleteOrder(orderID);
+                            MessageBox.Show("You have successfully deleted the order.");
                             Orders = LoadOrders();
                         }
                     }
@@ -166,6 +167,7 @@ namespace Pizza_app.ViewModel.Employees
                         var orderToUpdate = Orders.First(x => x.OrderID == orderID);
                         orderToUpdate.IsApproved = "approved";
                         db.UpdateOrder(orderToUpdate);
+                        MessageBox.Show("You have successfully approved the order.");
                         Orders = LoadOrders();
                     }
                     else
@@ -216,6 +218,7 @@ namespace Pizza_app.ViewModel.Employees
                         var orderToUpdate = Orders.First(x => x.OrderID == orderID);
                         orderToUpdate.IsApproved = "rejected";
                         db.UpdateOrder(orderToUpdate);
+                        MessageBox.Show("You have successfully rejected the order.");
                         Orders = LoadOrders();
                     }
                     else
