@@ -49,5 +49,9 @@
                 Background="#545d6a" Foreground="White"/>
         <Label  Foreground="White" Content="{Binding TotalAmount, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="634,18,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Label  Foreground="White" Content="Total amount:" Grid.Column="1" HorizontalAlignment="Left" Margin="505,18,0,0" Grid.RowSpan="3" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" Grid.Row="1" Content="Logout" Name="btnLogout" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Width="auto"  
+                Command="{Binding Logout, UpdateSourceTrigger=PropertyChanged}"
+                Background="#545d6a" Foreground="White"/>
     </Grid>
 </Window>

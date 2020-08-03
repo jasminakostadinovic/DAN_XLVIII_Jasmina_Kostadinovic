@@ -237,7 +237,10 @@ namespace Pizza_app.ViewModel.Guests
                     item.OrderID = idOrder;
                     db.AddNewOrderedMeal(item);
                 }
+                MessageBox.Show("Your order is successfully created!");
+                MainWindow loginWindow = new MainWindow();
                 view.Close();
+                loginWindow.Show();
 
 
             }
@@ -252,6 +255,33 @@ namespace Pizza_app.ViewModel.Guests
             if (orderedMeals.Any())
                 return true;
             return false;
+        }
+
+        //logging out
+
+        private ICommand logout;
+        public ICommand Logout
+        {
+            get
+            {
+                if (logout == null)
+                {
+                    logout = new RelayCommand(param => ExitExecute(), param => CanExitExecute());
+                }
+                return logout;
+            }
+        }
+
+        private bool CanExitExecute()
+        {
+            return true;
+        }
+
+        private void ExitExecute()
+        {
+            MainWindow loginWindow = new MainWindow();
+            view.Close();
+            loginWindow.Show();
         }
         #endregion
     }

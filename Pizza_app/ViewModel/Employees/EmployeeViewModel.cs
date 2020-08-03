@@ -229,6 +229,33 @@ namespace Pizza_app.ViewModel.Employees
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        //logging out
+
+        private ICommand logout;
+        public ICommand Logout
+        {
+            get
+            {
+                if (logout == null)
+                {
+                    logout = new RelayCommand(param => ExitExecute(), param => CanExitExecute());
+                }
+                return logout;
+            }
+        }
+
+        private bool CanExitExecute()
+        {
+            return true;
+        }
+
+        private void ExitExecute()
+        {
+            MainWindow loginWindow = new MainWindow();
+            view.Close();
+            loginWindow.Show();
+        }
         #endregion
     }
 }

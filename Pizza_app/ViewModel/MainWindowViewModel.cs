@@ -87,6 +87,7 @@ namespace Pizza_app.ViewModel
 					{
 						timer.Stop();
 						NewGuestView guestView = new NewGuestView(UserName);
+						loginView.Close();
 						oldQuestView.Close();
 						guestView.Show();
 					};
